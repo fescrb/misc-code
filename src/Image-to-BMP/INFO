@@ -1,0 +1,12 @@
+A simple C++ image class with not much going for it 
+except for the fact that it can write its contents 
+to a BMP file. Useful if you are writing a CPU ray 
+tracer or any other program that writes to a buffer
+and you don't want to muck about with GLUT, VTK or 
+the like.
+
+    [Shortcommings]
+
+Cannot handle images whose width is not divisible 
+by 4. Then again, I might have patched that problem,
+I cannot recall.
