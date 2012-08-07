@@ -1,0 +1,29 @@
+This project contains bits and pieces of assorted 
+code which are usefull and reusable, but have no 
+business in a library of their own.
+
+        [INSTALLING AND USAGE]
+
+If you want to use any code from this project,
+simply copy it across to you own. No building process
+has been defined for any parts of the code found
+here.
+
+It has been at least given a logical structure:
+you will find code of similar or dependent functionality 
+bundled in the same folder. Also note that code
+found here may not even compile, as it has been 
+usually stripped from other projects. A minimal 
+effort will be made to keep the code compilable 
+and dependency free.
+
+You have been warned.
+
+        [LICENSE AND WARRANTY]
+
+The license for any code here can be found in the
+LICENSE text file. Their warranty in the source files
+themselves.
+
+Basically, you can use the code for whatever you want.
+Just remember it has ABSOLUTELY no warranty.
