@@ -1,0 +1,3 @@
+Math types, structs and related methods. This may
+be worh making into its own header library, but most
+of it will probably need to be rewritten.
