@@ -1,0 +1,6 @@
+A high resolution timer strcture which returns the 
+time in seconds. The timers have nanosecond accuracy.
+
+This code should work in both Linux and Mac OSX. The
+macros _LINUX or _OSX must be defined for the
+platform-specific code to be compiled.
