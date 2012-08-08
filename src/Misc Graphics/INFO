@@ -1,0 +1,6 @@
+NOTE: Depends on the Image class found at ../Image-to-BMP/
+and the math types found at ../Math
+
+Contains assorted graphics utilities, most important of which is
+a Wavefront OBJ file reader and MTL reader (note that they are 
+anything but complete). And an PNG reader class.
