@@ -4,3 +4,7 @@ and the math types found at ../Math
 Contains assorted graphics utilities, most important of which is
 a Wavefront OBJ file reader and MTL reader (note that they are 
 anything but complete). And an PNG reader class.
+
+Also included ins a header file that includes severa OpenGL header
+files, working on both Linux and Mac OSX (the macros _LINUX or _OSX,
+must be defined for either).
