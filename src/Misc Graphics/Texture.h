@@ -13,8 +13,6 @@
 
 #include "Vector.h"
 
-using namespace vector;
-
 class Texture
 :   public Image {
     public:
