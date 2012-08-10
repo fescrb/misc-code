@@ -8,14 +8,11 @@
 
 #include <cstdio>
 
-float4 plane::getIntersectionPoint(const line& intersecting_line) {
+float plane::getIntersectionPoint(const line& intersecting_line) {
     float4 origin = intersecting_line.getOrigin();
     float4 direction = intersecting_line.getDirection();
     
-    float scalar = ( dot(m_normal,origin) - dot(m_normal, m_pointInPlane) ) / dot(m_normal, direction);
-    scalar*=-1.0f;
-    
-    return intersecting_line.getPositionAt(scalar);
+    return ( dot(m_normal,origin) - dot(m_normal, m_pointInPlane) ) / dot(m_normal, direction) * -1.0f;
 }
 
 std::vector<triangle> plane::cull(const triangle& triangleToCull) {
@@ -60,12 +57,14 @@ std::vector<triangle> plane::cull(const triangle& triangleToCull) {
                 ,missing_vertices[0].getNormal()[1]
                 ,missing_vertices[0].getNormal()[2]
             );*/
-            vertex new_vertex_one = line::linearInterpolation(vertices[0], missing_vertices[0], getIntersectionPoint(line(vertices[0], missing_vertices[0])));
+            line temp = line(vertices[0], missing_vertices[0]);
+            vertex new_vertex_one = line::linearInterpolation(vertices[0], missing_vertices[0], temp.getPositionAt(getIntersectionPoint(temp)));
             /*printf("new vert 1 (%f %f %f) (%f %f %f)\n"
                 , new_vertex_one.getPosition()[0], new_vertex_one.getPosition()[1], new_vertex_one.getPosition()[2]
                 , new_vertex_one.getNormal()[0], new_vertex_one.getNormal()[1], new_vertex_one.getNormal()[2]
             );*/
-            vertex new_vertex_two = line::linearInterpolation(vertices[0], missing_vertices[1], getIntersectionPoint(line(vertices[0],missing_vertices[1])));
+            temp = line(vertices[0], missing_vertices[1]);
+            vertex new_vertex_two = line::linearInterpolation(vertices[0], missing_vertices[1], temp.getPositionAt(getIntersectionPoint(temp)));
             /*printf("new vert 2 (%f %f %f) (%f %f %f)\n"
                 , new_vertex_two.getPosition()[0], new_vertex_two.getPosition()[1], new_vertex_two.getPosition()[2]
                 , new_vertex_two.getNormal()[0], new_vertex_two.getNormal()[1], new_vertex_two.getNormal()[2]
@@ -93,12 +92,14 @@ std::vector<triangle> plane::cull(const triangle& triangleToCull) {
                 ,missing_vertices[0].getNormal()[1]
                 ,missing_vertices[0].getNormal()[2]
             );*/
-            vertex new_vertex_one = line::linearInterpolation(vertices[0], missing_vertices[0],(getIntersectionPoint(line(vertices[0], missing_vertices[0]))));
+            line temp = line(vertices[0], missing_vertices[0]);
+            vertex new_vertex_one = line::linearInterpolation(vertices[0], missing_vertices[0],temp.getPositionAt(getIntersectionPoint(temp)));
             /*printf("new vert 1 (%f %f %f) (%f %f %f)\n"
                 , new_vertex_one.getPosition()[0], new_vertex_one.getPosition()[1], new_vertex_one.getPosition()[2]
                 , new_vertex_one.getNormal()[0], new_vertex_one.getNormal()[1], new_vertex_one.getNormal()[2]
             );*/
-            vertex new_vertex_two = line::linearInterpolation(vertices[1], missing_vertices[0],getIntersectionPoint(line(vertices[1], missing_vertices[0])));
+            temp = line(vertices[1], missing_vertices[0]);
+            vertex new_vertex_two = line::linearInterpolation(vertices[1], missing_vertices[0],temp.getPositionAt(getIntersectionPoint(temp)));
             /*printf("new vert 2 (%f %f %f) (%f %f %f)\n"
                 , new_vertex_two.getPosition()[0], new_vertex_two.getPosition()[1], new_vertex_two.getPosition()[2]
                 , new_vertex_two.getNormal()[0], new_vertex_two.getNormal()[1], new_vertex_two.getNormal()[2]

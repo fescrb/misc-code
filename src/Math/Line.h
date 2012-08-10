@@ -57,7 +57,7 @@ struct line {
                           v1.getTexCoord()*distance_2 + v2.getTexCoord()*distance_1);
         }
         
-    private:
+    protected:
         float4               m_origin;
         float4               m_direction;
 };

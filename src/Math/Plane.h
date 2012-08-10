@@ -19,7 +19,7 @@ struct plane {
                                  plane() {}
                             
         explicit                 plane(const float4& pointInPlane,
-                               const float4& planeNormal )
+                                       const float4& planeNormal )
         :   m_pointInPlane(pointInPlane),
             m_normal(planeNormal) {
         }
@@ -45,7 +45,7 @@ struct plane {
             return dot(m_normal, point-m_pointInPlane);
         }
         
-        float4                   getIntersectionPoint(const line& intersecting_line);
+        float                    getIntersectionPoint(const line& intersecting_line);
         
         std::vector<triangle>    cull(const triangle& triangleToCull);
         
