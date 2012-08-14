@@ -49,6 +49,8 @@ std::map<std::string,material> MTLFileReader::getMaterials() {
             case TYPE_NEWMTL:
                 strtok(line," ");
                 mtl_name = strtok(NULL, " \n\0");
+                if(!mtl_name)
+                    mtl_name = "";
                 current_mtl = std::string(mtl_name);
                 materials[current_mtl] = material();
                 break;

@@ -83,6 +83,8 @@ mesh OBJFileReader::getMesh() {
             case TYPE_USEMTL:
                 strtok(line," ");
                 filename = strtok(NULL," \n\0");
+                if(!filename)
+                    filename = "";
                 mtl_in_use = std::string(filename);
                 cur_material = materials[mtl_in_use];
                 break;
